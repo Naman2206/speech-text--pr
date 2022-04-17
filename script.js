@@ -1,15 +1,30 @@
 
+var btninput=document.querySelector("#btn-input");
+var textinput=document.querySelector("#input-area");
+var inputtext="en-GB";
 
-try {
-    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    var recognition = new SpeechRecognition();
-     recognition.lang="en-GB";
-  }
-  catch(e) {
-    console.error(e);
-    $('.no-browser-support').show();
-    $('.app').hide();
-  }
+try{
+  var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var recognition = new SpeechRecognition();
+  console.log("hi");
+   recognition.lang=inputtext;
+}
+catch(e) {
+ 
+  console.error(e);
+  $('.no-browser-support').show();
+  $('.app').hide();
+}
+
+function clickhandler(){
+ var inputtext=textinput.value+"-GB";
+  console.log(inputtext);
+  recognition.lang=inputtext;
+}
+btninput.addEventListener("click",clickhandler)
+
+
+
   
   
   var noteTextarea = $('#note-textarea');
